@@ -6,7 +6,7 @@ export class AdminSettingsService {
   private renderer: Renderer2;
   baseUrl = 'https://project2.cybercloudapps.com/wp-json';
   username = 'Admin';
-  appPassword = 'rYM3 RRGW GUB7 O1xg Thua h3Am'; // Replace with your actual app password
+  appPassword = 'Xp02 POXx V1ow FtyC fTRf AipM'; // Replace with your actual app password
 
   adminTitle = '';
   adminFavicon = '';
