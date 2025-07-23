@@ -102,6 +102,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   viewCategory(slug: string) {
-    window.open(`https://cybercloudapp.com/product-category/${slug}`, '_blank');
+    window.open(`https://project2.cybercloudapps.com/product-category/${slug}`, '_blank');
   }
 }

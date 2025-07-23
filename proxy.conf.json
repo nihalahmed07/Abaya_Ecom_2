@@ -1,6 +1,6 @@
 {
   "/wp-json": {
-    "target": "https://cybercloudapp.com",
+    "target": "https://project2.cybercloudapps.com",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
