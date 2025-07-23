@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class WpProductsService {
-  private baseUrl = 'https://cybercloudapp.com/wp-json/wc/v3/products';
-  private consumerKey = 'ck_a5d1866cd08f77c20b601dd09746f0f00c3b6878';
-  private consumerSecret = 'cs_729c552b1298055023ea6985f4120d5619ae1c0a';
+  private baseUrl = 'https://project2.cybercloudapps.com/wp-json/wc/v3/products';
+  private consumerKey = 'ck_4b91a17f6b003ce554b04360671caa6d5f415274';
+  private consumerSecret = 'cs_dd2efc294f8c305ed286a72c7cd2fa4af5e4dc1b';
 
   constructor(private http: HttpClient) {}
 
@@ -26,13 +26,13 @@ export class WpProductsService {
   }
 
   getCategories(): Observable<any[]> {
-  const url = 'https://cybercloudapp.com/wp-json/wc/v3/products/categories';
+  const url = 'https://project2.cybercloudapps.com/wp-json/wc/v3/products/categories';
   const params = new HttpParams()
     .set('consumer_key', this.consumerKey)
     .set('consumer_secret', this.consumerSecret)
     .set('per_page', '100');
 
-  return this.http.get<any[]>('https://cybercloudapp.com/wp-json/wc/v3/products/categories', { params });
+  return this.http.get<any[]>('https://project2.cybercloudapps.com/wp-json/wc/v3/products/categories', { params });
 }
 
 
@@ -81,7 +81,7 @@ addProduct(data: any) {
 //   const password = 'cs_31cfcfe1e7ac08abafcf197a0d651e32a0758987'; // 🔐 Your Consumer Secret
 //   const authHeader = 'Basic ' + btoa(`${username}:${password}`);
 
-//   return this.http.post(`https://cybercloudapp.com/wp-json/wp/v2/media`, formData, {
+//   return this.http.post(`https://project2.cybercloudapps.com/wp-json/wp/v2/media`, formData, {
 //     headers: {
 //       Authorization: authHeader,
 //       'Content-Disposition': `attachment; filename="${file.name}"`
@@ -93,11 +93,11 @@ uploadImage(file: File): Observable<any> {
   const formData = new FormData();
   formData.append('file', file);
 
-  const username = 'admin';
-  const appPassword = 'Abcd246@1'; // Create from WordPress user profile
+  const username = 'Admin';
+  const appPassword = 'Abcd246@8'; // Create from WordPress user profile
   const base64Token = btoa(`${username}:${appPassword}`);
 
-  return this.http.post('https://cybercloudapp.com/wp-json/wp/v2/media', formData, {
+  return this.http.post('https://project2.cybercloudapps.com/wp-json/wp/v2/media', formData, {
     headers: {
       Authorization: `Basic ${base64Token}`,
       'Content-Disposition': `attachment; filename="${file.name}"`,
@@ -112,7 +112,7 @@ getTagsByIds(ids: number[]): Observable<any[]> {
     .set('consumer_secret', this.consumerSecret)
     .set('include', ids.join(','));
 
-  return this.http.get<any[]>('https://cybercloudapp.com/wp-json/wc/v3/products/tags', { params });
+  return this.http.get<any[]>('https://project2.cybercloudapps.com/wp-json/wc/v3/products/tags', { params });
 }
 
 

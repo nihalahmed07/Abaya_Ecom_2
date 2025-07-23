@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
-  private baseUrl = 'https://cybercloudapp.com/wp-json/wc/v3/products/categories';
-  private consumerKey = 'ck_a5d1866cd08f77c20b601dd09746f0f00c3b6878';
-  private consumerSecret = 'cs_729c552b1298055023ea6985f4120d5619ae1c0a';
+  private baseUrl = 'https://project2.cybercloudapps.com/wp-json/wc/v3/products/categories';
+  private consumerKey = 'ck_4b91a17f6b003ce554b04360671caa6d5f415274';
+  private consumerSecret = 'cs_dd2efc294f8c305ed286a72c7cd2fa4af5e4dc1b';
   private username = 'Admin'; // replace with your WP username
-  private appPassword = 'rYM3 RRGW GUB7 O1xg Thua h3Am'; // replace with your WP app password
+  private appPassword = 'Xp02 POXx V1ow FtyC fTRf AipM'; // replace with your WP app password
 
   constructor(private http: HttpClient) {}
 

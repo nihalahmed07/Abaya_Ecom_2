@@ -26,7 +26,7 @@ export class SigninWithHeaderFooterComponent implements OnInit {
       Authorization: 'Basic ' + credentials
     });
 
-    this.http.get('https://cybercloudapp.com/wp-json/wp/v2/users/me', { headers })
+    this.http.get('https://project2.cybercloudapps.com/wp-json/wp/v2/users/me', { headers })
       .subscribe({
         next: (res: any) => {
           // success – store auth flag and redirect

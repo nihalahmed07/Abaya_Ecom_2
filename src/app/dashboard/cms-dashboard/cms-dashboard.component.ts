@@ -23,11 +23,11 @@ export class CmsDashboardComponent implements OnInit {
   
 
 
-  private baseUrl = 'https://cybercloudapp.com/wp-json';
-  private wcKey = 'ck_a5d1866cd08f77c20b601dd09746f0f00c3b6878';
-  private wcSecret = 'cs_729c552b1298055023ea6985f4120d5619ae1c0a';
+  private baseUrl = 'https://project2.cybercloudapps.com/wp-json';
+  private wcKey = 'ck_4b91a17f6b003ce554b04360671caa6d5f415274';
+  private wcSecret = 'cs_dd2efc294f8c305ed286a72c7cd2fa4af5e4dc1b';
   private username = 'Admin'; // replace with your WP username
-  private appPassword = 'rYM3 RRGW GUB7 O1xg Thua h3Am'; // replace with your WP app password
+  private appPassword = 'Xp02 POXx V1ow FtyC fTRf AipM'; // replace with your WP app password
 
   constructor(private http: HttpClient, private renderer: Renderer2) {}
 
@@ -204,7 +204,7 @@ saveAdminSettings() {
 
 
   getSiteSettings() {
-  const url = 'https://cybercloudapp.com/wp-json/wp/v2/settings';
+  const url = 'https://project2.cybercloudapps.com/wp-json/wp/v2/settings';
   const username = this.username; // e.g., 'admin'
   const appPassword = this.appPassword; // e.g., 'abc xyz 123...'
   const auth = btoa(`${username}:${appPassword}`);
@@ -306,7 +306,7 @@ fetchCategoryCount() {
 
 
 // updateSiteTitle() {
-//   const url = 'https://cybercloudapp.com/wp-json/wp/v2/settings';
+//   const url = 'https://project2.cybercloudapps.com/wp-json/wp/v2/settings';
 //   const username = this.username; // e.g., 'admin';
 //   const appPassword = this.appPassword; // e.g., 'abc xyz 123...';
 //   const auth = btoa(`${username}:${appPassword}`);
@@ -349,7 +349,7 @@ updateSiteTitle() {
 
 
 setSiteLogo(mediaId: number) {
-  const url = 'https://cybercloudapp.com/wp-json/custom/v1/set-logo';
+  const url = 'https://project2.cybercloudapps.com/wp-json/custom/v1/set-logo';
 
   const username = this.username; // same one used to generate app password
   const appPassword = this.appPassword; // same app password used for authentication
@@ -377,7 +377,7 @@ setSiteLogo(mediaId: number) {
 
 
 uploadLogo(file: File) {
-  const url = 'https://cybercloudapp.com/wp-json/wp/v2/media';
+  const url = 'https://project2.cybercloudapps.com/wp-json/wp/v2/media';
   // const username = this.username; // replace with your WP username
   // const appPassword = this.appPassword; // replace with your WP app password
   // const auth = btoa(`${username}:${appPassword}`);

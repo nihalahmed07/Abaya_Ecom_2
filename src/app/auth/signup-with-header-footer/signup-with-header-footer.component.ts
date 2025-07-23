@@ -33,7 +33,7 @@ export class SignupWithHeaderFooterComponent implements OnInit {
       'Content-Type': 'application/json'
     });
 
-    this.http.post('https://cybercloudapp.com/wp-json/custom/v1/register-admin', body, { headers })
+    this.http.post('https://project2.cybercloudapps.com/wp-json/custom/v1/register-admin', body, { headers })
       .subscribe({
         next: (res) => {
           alert('Admin registered!');

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class AdminSettingsService {
   private renderer: Renderer2;
-  baseUrl = 'https://cybercloudapp.com/wp-json';
+  baseUrl = 'https://project2.cybercloudapps.com/wp-json';
   username = 'Admin';
   appPassword = 'rYM3 RRGW GUB7 O1xg Thua h3Am'; // Replace with your actual app password
 

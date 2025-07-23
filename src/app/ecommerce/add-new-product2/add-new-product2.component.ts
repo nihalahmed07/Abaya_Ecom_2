@@ -238,7 +238,7 @@ removeImage() {
     const formData = new FormData();
     formData.append('image', this.imageFile);
 
-    this.http.post<any>('https://cybercloudapp.com/wp-json/custom/v1/upload-image', formData).subscribe({
+    this.http.post<any>('https://project2.cybercloudapps.com/wp-json/custom/v1/upload-image', formData).subscribe({
       next: (res) => {
         if (res.success && res.id) {
           this.product.image = { id: res.id, url: res.url };

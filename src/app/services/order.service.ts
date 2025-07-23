@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
-  private apiUrl = 'https://cybercloudapp.com/wp-json/wc/v3/orders';
+  private apiUrl = 'https://project2.cybercloudapps.com/wp-json/wc/v3/orders';
   private consumerKey = 'ck_dd111222ce2c0914e75dc284afff6a080243a2b4';  // 🔑 your WooCommerce CK
   private consumerSecret = 'cs_31cfcfe1e7ac08abafcf197a0d651e32a0758987';  // 🔐 your WooCommerce CS
 
@@ -33,9 +33,9 @@ export class OrderService {
   // private apiUrl = '/wp-json/wc/v3/orders';
   // private consumerKey = 'ck_dd111222ce2c0914e75dc284afff6a080243a2b4';  // 🔑 your WooCommerce CK
   // private consumerSecret = 'cs_31cfcfe1e7ac08abafcf197a0d651e32a0758987';  // 🔐 your WooCommerce CS
-  private apiUrl = 'https://cybercloudapp.com/wp-json/wc/v3/orders';  // WooCommerce API URL
-  private consumerKey = 'ck_a5d1866cd08f77c20b601dd09746f0f00c3b6878';  // WooCommerce Consumer Key
-  private consumerSecret = 'cs_729c552b1298055023ea6985f4120d5619ae1c0a';  // WooCommerce Consumer Secret
+  private apiUrl = 'https://project2.cybercloudapps.com/wp-json/wc/v3/orders';  // WooCommerce API URL
+  private consumerKey = 'ck_4b91a17f6b003ce554b04360671caa6d5f415274';  // WooCommerce Consumer Key
+  private consumerSecret = 'cs_dd2efc294f8c305ed286a72c7cd2fa4af5e4dc1b';  // WooCommerce Consumer Secret
 
   constructor(private http: HttpClient) {}
 
