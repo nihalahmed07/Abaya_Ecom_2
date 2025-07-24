@@ -3,7 +3,7 @@ name: Deploy Angular App via FTP
 on:
   push:
     branches:
-      - main
+      - main  # or replace with your deployment branch
 
 jobs:
   build-and-deploy:
@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies (with legacy-peer-deps)
         run: npm install --legacy-peer-deps
 
+
       - name: Build Angular app
         run: npm run build --prod
 
@@ -30,4 +31,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/Abaya_Ecom_2/
+          local-dir: dist/skodash/
