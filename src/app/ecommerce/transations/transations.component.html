@@ -1,0 +1,104 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+	<div class="breadcrumb-title pe-3">eCommerce</div>
+	<div class="ps-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb mb-0 p-0">
+				<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Transactions</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="ms-auto">
+		<!-- <div class="btn-group">
+			<button type="button" class="btn btn-primary">Settings</button>
+			<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+				data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
+					href="javascript:;">Action</a>
+				<a class="dropdown-item" href="javascript:;">Another action</a>
+				<a class="dropdown-item" href="javascript:;">Something else here</a>
+				<div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
+			</div>
+		</div> -->
+	</div>
+</div>
+<!--end breadcrumb-->
+<div class="card">
+	<div class="card-header py-3">
+		<div class="row g-3">
+			<div class="col-lg-3 col-md-6 me-auto">
+				<div class="ms-auto position-relative">
+					<div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
+							class="bi bi-search"></i>
+					</div>
+				  <input class="form-control ps-5" type="text" placeholder="Search Payment"
+                 [(ngModel)]="searchTerm" (input)="onSearch()">
+				</div>
+			</div>
+			<div class="col-lg-2 col-6 col-md-3">
+				<select class="form-select" [(ngModel)]="selectedStatus" (change)="loadTransactions()">
+					<option value="">Show All</option>
+					<option value="processing">Processing</option>
+					<option value="on-hold">On Hold</option>
+					<option value="cancelled">Cancelled</option>
+					<option value="completed">Completed</option>
+					<option value="checkout-draft">Draft</option>
+					<option value="pending">Pending</option>
+					<option value="refunded">Refunded</option>
+					<option value="failed">Failed</option>
+				</select>
+
+			</div>
+			<div class="col-lg-2 col-6 col-md-3">
+				<select class="form-select" [(ngModel)]="perPage" (change)="loadTransactions()">
+					<option [ngValue]="10">Show 10</option>
+					<option [ngValue]="30">Show 30</option>
+					<option [ngValue]="50">Show 50</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Customer</th>
+						<th>Total</th>
+						<th>Status</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let txn of transactions">
+						<td>{{ txn.id }}</td>
+						<td>{{ txn.billing.first_name }} {{ txn.billing.last_name }}</td>
+						<td>{{ txn.total | currency }}</td>
+						<td>{{ txn.status }}</td>
+						<td>{{ txn.date_created | date:'medium' }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<nav class="float-end mt-3" *ngIf="totalPages > 1">
+			<ul class="pagination">
+				<li class="page-item" [class.disabled]="currentPage === 1">
+					<a class="page-link" href="#" (click)="changePage(currentPage - 1, $event)">Previous</a>
+				</li>
+
+				<li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+					[class.active]="currentPage === i + 1">
+					<a class="page-link" href="#" (click)="changePage(i + 1, $event)">{{ i + 1 }}</a>
+				</li>
+
+				<li class="page-item" [class.disabled]="currentPage === totalPages">
+					<a class="page-link" href="#" (click)="changePage(currentPage + 1, $event)">Next</a>
+				</li>
+			</ul>
+		</nav>
+
+	</div>
+</div>

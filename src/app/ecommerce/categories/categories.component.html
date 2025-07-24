@@ -1,0 +1,137 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+	<div class="breadcrumb-title pe-3">eCommerce</div>
+	<div class="ps-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb mb-0 p-0">
+				<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Categories</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="ms-auto">
+		<!-- <div class="btn-group">
+			<button type="button" class="btn btn-primary">Settings</button>
+			<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+				data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
+					href="javascript:;">Action</a>
+				<a class="dropdown-item" href="javascript:;">Another action</a>
+				<a class="dropdown-item" href="javascript:;">Something else here</a>
+				<div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
+			</div>
+		</div> -->
+	</div>
+</div>
+<!--end breadcrumb-->
+<div class="card">
+	<div class="card-header py-3">
+		<h6 class="mb-0">Add Product Category</h6>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-12 col-lg-4 d-flex">
+				<div class="card border shadow-none w-100">
+					<div class="card-body">
+						<form (ngSubmit)="editingCategoryId ? updateCategory() : addCategory()" class="row g-3">
+							<div class="col-12">
+								<label class="form-label">Name</label>
+								<input type="text" class="form-control" placeholder="Category name"
+									[(ngModel)]="newCategory.name" name="name" required>
+							</div>
+							<div class="col-12">
+								<label class="form-label">Slug</label>
+								<input type="text" class="form-control" placeholder="Slug name"
+									[(ngModel)]="newCategory.slug" name="slug">
+							</div>
+							<div class="col-12">
+								<label class="form-label">Description</label>
+								<textarea class="form-control" rows="3" cols="3" placeholder="Product Description"
+									[(ngModel)]="newCategory.description" name="description"></textarea>
+							</div>
+							<div class="col-12">
+								<div class="d-flex gap-2">
+									<button class="btn btn-primary" type="submit">{{ editingCategoryId ? 'Update' :
+										'Add' }} Category</button>
+									<button *ngIf="editingCategoryId" class="btn btn-secondary" type="button"
+										(click)="cancelEdit()">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-8 d-flex">
+				<div class="card border shadow-none w-100">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table align-middle">
+								<thead class="table-light">
+									<tr>
+										<th>
+											<input class="form-check-input" type="checkbox">
+										</th>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Slug</th>
+										<th>Order</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr *ngFor="let category of pagedCategories">
+										<td><input class="form-check-input" type="checkbox" /></td>
+										<td>#{{ category.id }}</td>
+										<td>{{ category.name }}</td>
+										<td class="description-cell">{{ category.description || '—' }}</td>
+										<td>{{ category.slug }}</td>
+										<td>{{ category.menu_order }}</td>
+										<td>
+											<div class="d-flex align-items-center gap-2 fs-6">
+												<a [href]="'https://cybercloudapp.com/product-category/' + category.slug"
+													target="_blank" class="text-primary" title="View"
+													(click)="$event.stopPropagation()">
+													<i class="bi bi-eye-fill"></i>
+												</a>
+
+												<a class="text-warning" (click)="editCategory(category)" title="Edit">
+													<i class="bi bi-pencil-fill"></i>
+												</a>
+												<a class="text-danger" (click)="deleteCategory(category.id)"
+													title="Delete">
+													<i class="bi bi-trash-fill"></i>
+												</a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+
+							</table>
+
+						</div>
+						<nav class="float-end mt-0" aria-label="Page navigation">
+							<ul class="pagination">
+								<li class="page-item" [class.disabled]="currentPage === 1">
+									<button class="page-link" (click)="changePage(-1)">Previous</button>
+								</li>
+								<li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+									[class.active]="i + 1 === currentPage">
+									<button class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</button>
+								</li>
+								<li class="page-item" [class.disabled]="currentPage === totalPages">
+									<button class="page-link" (click)="changePage(1)">Next</button>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end row-->
+	</div>
+</div>
